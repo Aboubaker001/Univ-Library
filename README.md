@@ -1,6 +1,5 @@
 # 📚 Library Management System
 
-![Project Screenshot](/screenshots/dashboard.png)  
 *A modern library management solution built with Next.js, Supabase, and Tailwind CSS*
 
 ## ✨ Features
@@ -51,7 +50,7 @@
 ### Installation
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/library-management-system.git
+git clone https://github.com/aboubaker001/library-management-system.git
 
 # Install dependencies
 npm install
