@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Library | Home</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <!-- Glide.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/css/glide.core.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/main.css">
+
+    <style>
+        .ripple-effect {
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          background: rgba(255, 255, 255, 0.7);
+          border-radius: 50%;
+          transform: translate(-50%, -50%) scale(0);
+          animation: ripple 0.6s linear;
+          pointer-events: none;
+        }
+        
+        @keyframes ripple {
+          to {
+            transform: translate(-50%, -50%) scale(10);
+            opacity: 0;
+          }
+        }
+        
+        /* Add this for card hover effects */
+        .card {
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: radial-gradient(
+            600px circle at var(--mouse-x) var(--mouse-y),
+            rgba(255, 255, 255, 0.1),
+            transparent 40%
+          );
+          opacity: 0;
+          transition: opacity 0.5s;
+        }
+        
+        .card:hover::before {
+          opacity: 1;
+        }
+      </style>
+</head>
+
+<body data-bs-theme="light">
+    <!-- Navigation -->
+    <header class="fixed-header">
+        <!-- Top Bar -->
+        <div class="header-top-bar bg-dark">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center py-2">
+                    <div class="header-contact">
+                        <a href="tel:+1234567890" class="text-white me-3"><i class="fas fa-phone-alt me-1"></i> (123)
+                            456-7890</a>
+                        <a href="mailto:info@unilib.edu" class="text-white"><i class="fas fa-envelope me-1"></i>
+                            info@unilib.edu</a>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <!-- Language Selector -->
+                        <div class="dropdown language-selector me-3">
+                            <button class="btn btn-sm btn-outline-light dropdown-toggle" type="button"
+                                id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-globe me-1"></i> EN
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                                <li><a class="dropdown-item" href="#" data-lang="en"><span
+                                            class="flag-icon flag-icon-gb me-2"></span>English</a></li>
+                                <li><a class="dropdown-item" href="#" data-lang="fr"><span
+                                            class="flag-icon flag-icon-fr me-2"></span>Français</a></li>
+                                <li><a class="dropdown-item" href="#" data-lang="ar"><span
+                                            class="flag-icon flag-icon-sa me-2"></span>العربية</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Dark/Light Mode Toggle -->
+                        <button class="btn btn-sm btn-outline-light theme-toggle" aria-label="Toggle theme">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <i class="fas fa-book-open me-2"></i>
+                    <span class="brand-text">
+                        <span class="brand-main">Uni</span><span class="brand-accent">Library</span>
+                    </span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                    aria-expanded="false" title="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-book me-1 d-lg-none"></i> Resources
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-lg" aria-labelledby="resourcesDropdown">
+                                <li><a class="dropdown-item" href="books.html"><i class="fas fa-book me-2"></i>Books &
+                                        Media</a></li>
+                                <li><a class="dropdown-item" href="e-resources.html"><i
+                                            class="fas fa-laptop me-2"></i>E-Resources</a></li>
+                                <li><a class="dropdown-item" href="databases.html"><i
+                                            class="fas fa-database me-2"></i>Databases</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="special-collections.html"><i
+                                            class="fas fa-archive me-2"></i>Special Collections</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html"><i
+                                    class="fas fa-concierge-bell me-1 d-lg-none"></i>Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="research-help.html"><i
+                                    class="fas fa-search me-1 d-lg-none"></i>Research Help</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html"><i
+                                    class="fas fa-info-circle me-1 d-lg-none"></i>About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html"><i
+                                    class="fas fa-envelope me-1 d-lg-none"></i>Contact</a>
+                        </li>
+                    </ul>
+
+                    <div class="ms-lg-3 mt-3 mt-lg-0">
+                        <a href="login.html" class="btn btn-outline-light me-2"><i
+                                class="fas fa-sign-in-alt me-1"></i>Login</a>
+                        <a href="search.html" class="btn btn-accent btn-glow">
+                            <i class="fas fa-search me-1"></i> Quick Search
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-particles" id="particles-js"></div>
+        <div class="container text-center">
+            <h1 class="hero-title display-3 fw-bold mb-4" data-aos="fade-up">Discover. Learn. Grow.</h1>
+            <p class="hero-subtitle lead mb-5" data-aos="fade-up" data-aos-delay="100">Your gateway to knowledge with
+                over 250,000 resources at your fingertips</p>
+
+            <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-8">
+                    <div class="search-box glassmorphism">
+                        <h4 class="mb-4">Search Our Collection</h4>
+                        <form id="searchForm" class="search-container">
+                            <div class="input-group search-input-group">
+                                <input type="text" class="form-control form-control-lg search-input" id="searchQuery"
+                                    placeholder="Search books, journals, articles..." aria-label="Search our collection"
+                                    required>
+                                <button class="btn btn-primary btn-search" type="submit">
+                                    <i class="fas fa-search"></i> Search
+                                </button>
+                            </div>
+                            <div class="search-suggestions mt-2"></div>
+                        </form>
+                        <div class="d-flex flex-wrap justify-content-center mt-3">
+                            <a href="search.html?type=advanced"
+                                class="btn btn-sm btn-outline-primary mx-1 mb-2">Advanced Search</a>
+                            <a href="catalog.html" class="btn btn-sm btn-outline-primary mx-1 mb-2">Browse Catalog</a>
+                            <a href="new-arrivals.html" class="btn btn-sm btn-outline-primary mx-1 mb-2">New
+                                Arrivals</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="container section-py">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="section-title fw-bold">Our Library Services</h2>
+            <p class="section-subtitle lead text-muted">Everything you need to support your academic journey</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-card card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-book-reader"></i>
+                        </div>
+                        <h4 class="card-title">Book Lending</h4>
+                        <p class="card-text">Borrow from our extensive collection of books for your studies and
+                            research.</p>
+                        <a href="#" class="btn btn-sm btn-outline-primary mt-auto">Learn More <i
+                                class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-card card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <h4 class="card-title">Digital Resources</h4>
+                        <p class="card-text">Access e-books, journals, and databases from anywhere on campus.</p>
+                        <a href="#" class="btn btn-sm btn-outline-primary mt-auto">Learn More <i
+                                class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-card card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4 class="card-title">Study Spaces</h4>
+                        <p class="card-text">Book individual study rooms or collaborate in group study areas.</p>
+                        <a href="#" class="btn btn-sm btn-outline-primary mt-auto">Learn More <i
+                                class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="bg-light section-py">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-3 col-6" data-aos="fade-up">
+                    <div class="stats-card">
+                        <div class="stats-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="stats-number" data-count="250000">0</div>
+                        <p class="mb-0">Books</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stats-card">
+                        <div class="stats-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <div class="stats-number" data-count="15000">0</div>
+                        <p class="mb-0">E-Journals</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stats-card">
+                        <div class="stats-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <div class="stats-number" data-count="500">0</div>
+                        <p class="mb-0">Study Spaces</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stats-card">
+                        <div class="stats-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stats-number">24/7</div>
+                        <p class="mb-0">Online Access</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+    </section>
+
+    <!-- Featured Collections -->
+    <section class="section-py bg-gradient-primary">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title fw-bold text-white">Featured Collections</h2>
+                <p class="section-subtitle lead text-white-50">Explore our curated collections</p>
+            </div>
+
+            <div class="glide featured-collections" data-aos="fade-up" data-aos-delay="100">
+                <div class="glide__track" data-glide-el="track">
+                    <ul class="glide__slides">
+                        <li class="glide__slide">
+                            <div class="collection-card">
+                                <div class="collection-img">
+                                    <img src="https://images.unsplash.com/photo-1535905557558-afc4877a26fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                                        alt="Science Collection">
+                                    <div class="collection-overlay"></div>
+                                </div>
+                                <div class="collection-content">
+                                    <h4>Science & Technology</h4>
+                                    <p>500+ new titles added this semester</p>
+                                    <a href="#" class="btn btn-sm btn-outline-light">Explore</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="glide__slide">
+                            <div class="collection-card">
+                                <div class="collection-img">
+                                    <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1373&q=80"
+                                        alt="History Collection">
+                                    <div class="collection-overlay"></div>
+                                </div>
+                                <div class="collection-content">
+                                    <h4>History & Culture</h4>
+                                    <p>Rare manuscripts and primary sources</p>
+                                    <a href="#" class="btn btn-sm btn-outline-light">Explore</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="glide__slide">
+                            <div class="collection-card">
+                                <div class="collection-img">
+                                    <img src="https://dhjhkxawhe8q4.cloudfront.net/mit-press/wp-content/uploads/2023/02/23114309/march.new_.books_.1050x700.jpg"
+                                        alt="Art Collection">
+                                    <div class="collection-overlay"></div>
+                                </div>
+                                <div class="collection-content">
+                                    <h4>Art & Design</h4>
+                                    <p>Visual resources and design archives</p>
+                                    <a href="#" class="btn btn-sm btn-outline-light">Explore</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="glide__slide">
+                            <div class="collection-card">
+                                <div class="collection-img">
+                                    <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1453&q=80"
+                                        alt="Literature Collection">
+                                    <div class="collection-overlay"></div>
+                                </div>
+                                <div class="collection-content">
+                                    <h4>World Literature</h4>
+                                    <p>Classic and contemporary works</p>
+                                    <a href="#" class="btn btn-sm btn-outline-light">Explore</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="glide__bullets" data-glide-el="controls[nav]">
+                    <button class="glide__bullet" data-glide-dir="=0" title="Go to slide 1"></button>
+                    <button class="glide__bullet" data-glide-dir="=1" title="Go to slide 2"></button>
+                    <button class="glide__bullet" data-glide-dir="=2" title="Go to slide 3"></button>
+                    <button class="glide__bullet" data-glide-dir="=3" title="Go to slide 4"></button>
+                </div>
+                <br>
+                <br>
+                <div class="glide__arrows" data-glide-el="controls">
+                    <button class="glide__arrow glide__arrow--left" data-glide-dir="<" title="Previous Slide"><i
+                            class="fas fa-chevron-left"></i></button>
+                    <button class="glide__arrow glide__arrow--right" data-glide-dir=">" title="Next Slide"><i
+                            class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News & Events Section -->
+    <section class="container section-py">
+        <div class="d-flex justify-content-between align-items-center mb-4" data-aos="fade-up">
+            <h2 class="section-title fw-bold">News & Events</h2>
+            <a href="#" class="btn btn-outline-primary">View All <i class="fas fa-arrow-right ms-1"></i></a>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="news-card card h-100">
+                    <div class="card-img-container">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            class="card-img-top" alt="Library Event">
+                        <span class="badge bg-primary">Event</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Annual Book Fair 2023</h5>
+                        <p class="card-text text-muted">Join us for our biggest book fair of the year with special
+                            discounts and author meetups.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted"><i class="fas fa-calendar-alt me-1"></i> Nov 15-17, 2023</small>
+                            <a href="#" class="btn btn-sm btn-primary stretched-link">Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="news-card card h-100">
+                    <div class="card-img-container">
+                        <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1476&q=80"
+                            class="card-img-top" alt="Library Workshop">
+                        <span class="badge bg-success">Workshop</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Research Skills Workshop</h5>
+                        <p class="card-text text-muted">Learn advanced research techniques and how to use our digital
+                            resources effectively.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted"><i class="fas fa-calendar-alt me-1"></i> Nov 22, 2023</small>
+                            <a href="#" class="btn btn-sm btn-primary stretched-link">Register</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="news-card card h-100">
+                    <div class="card-img-container">
+                        <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                            class="card-img-top" alt="New Collection">
+                        <span class="badge bg-info">New</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">New STEM Collection</h5>
+                        <p class="card-text text-muted">We've added 500+ new titles to our Science, Technology,
+                            Engineering and Math collection.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted"><i class="fas fa-calendar-alt me-1"></i> Oct 30, 2023</small>
+                            <a href="#" class="btn btn-sm btn-primary stretched-link">Browse</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section-py bg-light">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title fw-bold">What Our Patrons Say</h2>
+                <p class="section-subtitle lead text-muted">Hear from students and faculty</p>
+            </div>
+
+            <div class="glide testimonials" data-aos="fade-up" data-aos-delay="100">
+                <div class="glide__track" data-glide-el="track">
+                    <ul class="glide__slides">
+                        <li class="glide__slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-content">
+                                    <div class="testimonial-text">
+                                        <p>"The library's digital resources saved me countless hours during my thesis
+                                            research. The staff is incredibly knowledgeable and helpful!"</p>
+                                    </div>
+                                    <div class="testimonial-author">
+                                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson"
+                                            class="author-img">
+                                        <div>
+                                            <h6>Sarah Johnson</h6>
+                                            <p class="text-muted">PhD Candidate, Biology</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="glide__slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-content">
+                                    <div class="testimonial-text">
+                                        <p>"As a professor, I appreciate how the library supports my research needs and
+                                            provides excellent resources for my students."</p>
+                                    </div>
+                                    <div class="testimonial-author">
+                                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Dr. Michael Chen"
+                                            class="author-img">
+                                        <div>
+                                            <h6>Dr. Michael Chen</h6>
+                                            <p class="text-muted">Professor of History</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="glide__slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-content">
+                                    <div class="testimonial-text">
+                                        <p>"The 24/7 study spaces are a lifesaver during exam periods. I couldn't
+                                            imagine my university experience without this library."</p>
+                                    </div>
+                                    <div class="testimonial-author">
+                                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emma Rodriguez"
+                                            class="author-img">
+                                        <div>
+                                            <h6>Emma Rodriguez</h6>
+                                            <p class="text-muted">Undergraduate Student</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="glide__bullets" data-glide-el="controls[nav]">
+                    <button class="glide__bullet" data-glide-dir="=0" title="Go to slide 1"></button>
+                    <button class="glide__bullet" data-glide-dir="=1" title="Go to slide 2"></button>
+                    <button class="glide__bullet" data-glide-dir="=2" title="Go to slide 3"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links Section -->
+    <section class="bg-primary text-white section-py">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
+                    <h3 class="fw-bold mb-4">Need Help?</h3>
+                    <p>Our librarians are available to assist you with your research needs, citation questions, and
+                        more.</p>
+                    <div class="d-flex flex-wrap">
+                        <a href="#" class="btn btn-light me-2 mb-2"><i class="fas fa-question-circle me-1"></i> Ask a
+                            Librarian</a>
+                        <a href="#" class="btn btn-outline-light mb-2"><i class="fas fa-calendar-check me-1"></i> Book
+                            Appointment</a>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="fw-bold mb-4">Opening Hours</h3>
+                    <ul class="opening-hours">
+                        <li class="d-flex justify-content-between">
+                            <span>Monday - Friday</span>
+                            <span>8:00 AM - 10:00 PM</span>
+                        </li>
+                        <li class="d-flex justify-content-between">
+                            <span>Saturday</span>
+                            <span>9:00 AM - 8:00 PM</span>
+                        </li>
+                        <li class="d-flex justify-content-between">
+                            <span>Sunday</span>
+                            <span>10:00 AM - 6:00 PM</span>
+                        </li>
+                        <li class="d-flex justify-content-between fw-bold mt-2">
+                            <span>24/7 Online Access</span>
+                            <span><i class="fas fa-check-circle"></i> Available</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="library-footer">
+        <div class="footer-main py-5">
+            <div class="container">
+                <div class="row g-4">
+                    <!-- About Column -->
+                    <div class="col-lg-4">
+                        <div class="footer-brand mb-3">
+                            <i class="fas fa-book-open me-2"></i>
+                            <span class="brand-text">
+                                <span class="brand-main">Uni</span><span class="brand-accent">Library</span>
+                            </span>
+                        </div>
+                        <p class="footer-about">Providing world-class resources and services to support academic
+                            excellence and research innovation since 1965.</p>
+                        <div class="footer-social mt-4">
+                            <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links Column -->
+                    <div class="col-lg-2 col-md-4">
+                        <h5 class="footer-title">Quick Links</h5>
+                        <ul class="footer-links">
+                            <li><a href="index.html"><i class="fas fa-chevron-right me-2"></i>Home</a></li>
+                            <li><a href="catalog.html"><i class="fas fa-chevron-right me-2"></i>Library Catalog</a></li>
+                            <li><a href="databases.html"><i class="fas fa-chevron-right me-2"></i>Research Databases</a>
+                            </li>
+                            <li><a href="hours.html"><i class="fas fa-chevron-right me-2"></i>Hours & Locations</a></li>
+                            <li><a href="ask-librarian.html"><i class="fas fa-chevron-right me-2"></i>Ask a
+                                    Librarian</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Resources Column -->
+                    <div class="col-lg-3 col-md-4">
+                        <h5 class="footer-title">Resources</h5>
+                        <ul class="footer-links">
+                            <li><a href="e-journals.html"><i class="fas fa-chevron-right me-2"></i>E-Journals</a></li>
+                            <li><a href="thesis.html"><i class="fas fa-chevron-right me-2"></i>Thesis Archive</a></li>
+                            <li><a href="course-reserves.html"><i class="fas fa-chevron-right me-2"></i>Course
+                                    Reserves</a></li>
+                            <li><a href="new-arrivals.html"><i class="fas fa-chevron-right me-2"></i>New Arrivals</a>
+                            </li>
+                            <li><a href="special-collections.html"><i class="fas fa-chevron-right me-2"></i>Special
+                                    Collections</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Column -->
+                    <div class="col-lg-3 col-md-4">
+                        <h5 class="footer-title">Contact Us</h5>
+                        <address class="footer-contact">
+                            <p><i class="fas fa-map-marker-alt me-2"></i> 123 University Ave<br>City, State 12345</p>
+                            <p><i class="fas fa-phone-alt me-2"></i> (123) 456-7890</p>
+                            <p><i class="fas fa-envelope me-2"></i> library@university.edu</p>
+                        </address>
+                        <div class="footer-newsletter mt-3">
+                            <h6>Subscribe to Newsletter</h6>
+                            <form class="newsletter-form">
+                                <div class="input-group">
+                                    <input type="email" class="form-control" placeholder="Your email"
+                                        aria-label="Your email">
+                                    <button class="btn btn-accent" type="submit">Go</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom py-3">
+            <div class="container">
+                <div class="d-md-flex justify-content-between align-items-center">
+                    <div class="mb-2 mb-md-0">
+                        &copy; <span id="current-year"></span> University Library. All rights reserved.
+                    </div>
+                    <div class="footer-legal">
+                        <a href="privacy.html" class="me-3">Privacy Policy</a>
+                        <a href="terms.html" class="me-3">Terms of Use</a>
+                        <a href="accessibility.html">Accessibility</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back to Top Button -->
+        <button id="back-to-top" class="btn btn-accent btn-glow btn-back-to-top" aria-label="Back to top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Glide.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/glide.min.js"></script>
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <!-- Custom JS -->
+    <script src="./js/main.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: "ease-in-out",
+            once: true,
+        });
+
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Initialize Glide.js sliders
+        new Glide('.featured-collections', {
+            type: 'carousel',
+            perView: 3,
+            gap: 30,
+            breakpoints: {
+                992: {
+                    perView: 2
+                },
+                768: {
+                    perView: 1
+                }
+            }
+        }).mount();
+
+        new Glide('.testimonials', {
+            type: 'carousel',
+            perView: 1,
+            gap: 30,
+            autoplay: 5000
+        }).mount();
+
+        // Initialize particles.js
+        particlesJS.load('particles-js', './js/particles.json', function () {
+            console.log('Particles.js loaded');
+        });
+
+        // Animate stats numbers
+        function animateStats() {
+            const statElements = document.querySelectorAll('.stats-number');
+
+            statElements.forEach(element => {
+                const target = parseInt(element.getAttribute('data-count') || 0, 10);
+                const duration = 2000;
+                const start = 0;
+                const increment = target / (duration / 16);
+                let current = start;
+
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        clearInterval(timer);
+                        current = target;
+                    }
+                    element.textContent = Math.floor(current).toLocaleString();
+                }, 16);
+            });
+        }
+
+        // Run when stats section is in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.querySelector('.bg-light.section-py');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+    </script>
+</body>
+
+</html>

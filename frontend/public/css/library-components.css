@@ -1,0 +1,224 @@
+/* ===== Header Styles ===== */
+.library-header {
+    position: relative;
+    z-index: 1000;
+  }
+  
+  .header-top-bar {
+    background-color: var(--dark-color);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+  }
+  
+  .header-top-bar a {
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .header-top-bar a:hover {
+    color: var(--accent-color) !important;
+  }
+  
+  .navbar-brand {
+    font-weight: 700;
+    font-size: 1.8rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .navbar-brand:hover {
+    transform: scale(1.05);
+  }
+  
+  .brand-text {
+    display: inline-block;
+    line-height: 1.2;
+  }
+  
+  .brand-main {
+    color: white;
+  }
+  
+  .brand-accent {
+    color: var(--accent-color);
+  }
+  
+  .navbar {
+    padding: 1rem 0;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    background-color: var(--primary-color) !important;
+  }
+  
+  .nav-link {
+    position: relative;
+    padding: 0.5rem 1rem !important;
+    font-weight: 500;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+  
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 70%;
+  }
+  
+  .btn-accent {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-accent:hover {
+    background-color: #c0392b;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Dropdown Animation */
+  .dropdown-menu {
+    animation: fadeIn 0.3s ease forwards;
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* ===== Footer Styles ===== */
+  .library-footer {
+    background-color: var(--dark-color);
+    color: white;
+    position: relative;
+  }
+  
+  .footer-main {
+    background-color: var(--primary-color);
+  }
+  
+  .footer-title {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+  
+  .footer-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--accent-color);
+  }
+  
+  .footer-links {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-links li {
+    margin-bottom: 0.8rem;
+  }
+  
+  .footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-left: 0;
+  }
+  
+  .footer-links a::before {
+    content: '→';
+    position: absolute;
+    left: -15px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    color: var(--accent-color);
+  }
+  
+  .footer-links a:hover {
+    color: white;
+    padding-left: 15px;
+  }
+  
+  .footer-links a:hover::before {
+    opacity: 1;
+    left: 0;
+  }
+  
+  .social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  .social-icon:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-3px);
+  }
+  
+  .footer-bottom {
+    background-color: rgba(0, 0, 0, 0.2);
+    font-size: 0.9rem;
+  }
+  
+  .btn-back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+  }
+  
+  .btn-back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* Newsletter Form */
+  .newsletter-form .form-control {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+  }
+  
+  .newsletter-form .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  .newsletter-form .form-control:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.25rem rgba(231, 76, 60, 0.25);
+  }
