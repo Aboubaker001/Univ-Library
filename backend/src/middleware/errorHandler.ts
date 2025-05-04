@@ -2,6 +2,7 @@ import Exceptions from "../utils/Exceptions.js";
 import HttpExeception from "../utils/HttpExeception.js";
 import{NextFunction, Request,RequestHandler,Response} from "express";
 export const errorResponse = (err : HttpExeception,req : Request , res : Response,next : NextFunction ) =>  {
+    console.log(err);
     res.status(err.status).json({
         ok : false,
         msg : err.message,

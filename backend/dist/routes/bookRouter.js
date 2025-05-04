@@ -1,0 +1,16 @@
+import { Router } from "express";
+import { errorHandler } from "../middleware/errorHandler.js";
+import isLibrarian from "../middleware/isLibrarian.js";
+import addNewBook from "../controllers/book/addNewBook.js";
+import getBooksList from "../controllers/book/getBooksList.js";
+import getBook from "../controllers/book/getSpecificBook.js";
+import updateBookInfo from "../controllers/book/updateBookInfo.js";
+import upload from "../services/upload/multer.js";
+import uploadBookImage from "../controllers/book/uploadBookImage.js";
+const bookRouter = Router();
+bookRouter.post('/', errorHandler(isLibrarian), errorHandler(addNewBook));
+bookRouter.post('/image/:id', upload.single("image"), errorHandler(isLibrarian), errorHandler(uploadBookImage));
+bookRouter.get('/:id', errorHandler(getBook));
+bookRouter.get('/all', errorHandler(getBooksList));
+bookRouter.put('/:id', errorHandler(isLibrarian), errorHandler(updateBookInfo));
+export default bookRouter;

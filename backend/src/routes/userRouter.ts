@@ -7,11 +7,11 @@ import verifyUser from "../controllers/user/verifyUser.js";
 const userRouter = Router();
 
 //signup :
-userRouter.post("signup",errorHandler(newUser));
+userRouter.post("/signup",errorHandler(newUser));
 //login :
-userRouter.post("login",errorHandler(login));
+userRouter.post("/login",errorHandler(login));
 //verification
-userRouter.post("login",errorHandler(verifyUser));
+userRouter.get("/verify",errorHandler(verifyUser));
 
 
 export default userRouter;

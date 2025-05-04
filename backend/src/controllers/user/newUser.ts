@@ -35,7 +35,7 @@ const newUser: RequestHandler = async (req: Request, res: Response): Promise<voi
     });
     //send verification email
     const token = signJwt({ email: validatedData.email },60 * 60 * 24);
-    const isSend = sendVerificaionEmail(validatedData.email, `${APP_URI}/api/user/verify?token=${token}`);
+    const isSend =  sendVerificaionEmail(validatedData.email, `${APP_URI}/api/user/verify?token=${token}`);
     //schedule user to delete after 24 hours if not verified :
     setTimeout(async () => {
         const user = await prisma.user.findUnique({

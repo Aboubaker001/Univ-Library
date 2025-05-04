@@ -1,4 +1,4 @@
-import { APP_EMAIL } from "../../env.js";
+import { APP_EMAIL } from "../../config/env.js";
 import resend from "./resendClient.js";
 
 const sendNotificaionEmail = async (receiver: string, message: string) => {
@@ -14,6 +14,7 @@ const sendNotificaionEmail = async (receiver: string, message: string) => {
         }
         return true;
     } catch (err) {
+        console.log(err)
         return false;
     }
 }

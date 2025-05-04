@@ -1,4 +1,4 @@
-import { APP_EMAIL } from "../../env.js";
+import { APP_EMAIL } from "../../config/env.js";
 import resend from "./resendClient.js";
 import createVerificationEmailPage from "../../utils/createVerficationEmailPage.js";
 
@@ -6,6 +6,7 @@ import createVerificationEmailPage from "../../utils/createVerficationEmailPage.
 const sendVerificaionEmail = async (receiver: string, link: string): Promise<Boolean> => {
     const html = createVerificationEmailPage(link);
     try {
+        console.log(APP_EMAIL);
         const { data, error } = await resend.emails.send({
             from: APP_EMAIL as string,
             to: [receiver],
@@ -14,6 +15,7 @@ const sendVerificaionEmail = async (receiver: string, link: string): Promise<Boo
             html: html
         });
         if (error) {
+            console.log(error);
             return false;
         }
         return true;
