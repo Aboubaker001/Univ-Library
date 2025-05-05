@@ -103,12 +103,6 @@ const verificationEmailPage = (link: string) => {
 </head>
 <body>
   <div class="container">
-
-    <!-- شعار الشركة (اختياري) -->
-    <div class="logo">
-      <img src="https://i.postimg.cc/wBK5RsXH/light-logo-removebg-preview.png" alt="شعار شركتك">
-    </div>
-
     <h1>تأكيد بريدك الإلكتروني</h1>
 
     <p>شكرًا لتسجيلك! يرجى النقر على الزر أدناه لتأكيد بريدك الإلكتروني وتفعيل حسابك.</p>
@@ -120,7 +114,6 @@ const verificationEmailPage = (link: string) => {
 
     <div class="footer">
       <p>هذه رسالة بريد إلكتروني تلقائية، الرجاء عدم الرد.</p>
-      <p>© 2025 دريفونا. جميع الحقوق محفوظة.</p>
     </div>
   </div>
 </body>

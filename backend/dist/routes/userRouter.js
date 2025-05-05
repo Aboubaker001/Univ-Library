@@ -1,0 +1,10 @@
+import { Router } from "express";
+import newUser from "../controllers/user/newUser.js";
+import login from "../controllers/user/login.js";
+import { errorHandler } from "../middleware/errorHandler.js";
+import verifyUser from "../controllers/user/verifyUser.js";
+const userRouter = Router();
+userRouter.post("/signup", errorHandler(newUser));
+userRouter.post("/login", errorHandler(login));
+userRouter.get("/verify", errorHandler(verifyUser));
+export default userRouter;

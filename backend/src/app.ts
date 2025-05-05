@@ -1,6 +1,7 @@
 import express from 'express';
 import { PORT } from './config/env.js';
 import mainRouter from './routes/mainRouter.js';
+import { errorResponse } from './middleware/errorHandler.js';
 
 
 //set up an express app :
@@ -15,6 +16,8 @@ app.get('/',(req , res) => {
 })
 //set up the routes :
 app.use('/api',mainRouter);
+//set error handler to app :
+app.use(errorResponse)
 
 //bind application to port :
 app.listen(PORT, () => {
